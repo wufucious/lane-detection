@@ -83,7 +83,8 @@ int main(int argc, char* argv[]) {
             	findDataMatrix(gray, codes, corners);
             	drawDataMatrixCodes(image, codes, corners);
 
-		Rect roi(0,image.cols/3,image.cols-1,image.rows - image.cols/3);// set the ROI for the image
+		// Rect roi(0,image.cols/3,image.cols-1,image.rows - image.cols/3);// set the ROI for the image
+		Rect roi(0,image.rows*3/5,image.cols-1,image.rows - image.rows*3/5);// set the ROI for the image
 		Mat imgROI = image(roi);
     // Display the image
 	if(showSteps){
@@ -196,7 +197,8 @@ int main(int argc, char* argv[]) {
 	   // Set probabilistic Hough parameters
 	ld.setLineLengthAndGap(5,2);
 	ld.setMinVote(1);
-	ld.setShift(image.cols/3);
+	// ld.setShift(image.cols/3);
+	ld.setShift(image.rows*3/5);
 	ld.drawDetectedLines(image);
 		
 	std::stringstream stream;
