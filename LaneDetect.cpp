@@ -117,8 +117,8 @@ int main(int argc, char* argv[]) {
 		houghVote = 200; 
 	}
 	else{ houghVote += 25;} 
-	while(lines.size() < 5 && houghVote > 0){
-		HoughLines(contours,lines,1,PI/180, houghVote);
+	while(lines.size() < 20 && houghVote > 0){
+		HoughLines(contours,lines,1,PI/30, houghVote);
 		houghVote -= 5;
 	}
 	std::cout << houghVote << "\n";
