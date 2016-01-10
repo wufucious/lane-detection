@@ -72,8 +72,8 @@ int main(int argc, char* argv[]) {
         Mat image;
 	image = imread(argv[1]);	
         while (1)
-        {
-           	capture >> image;
+       {
+            	capture >> image;
             if (image.empty())
                 break;
             	Mat gray;
@@ -113,7 +113,7 @@ int main(int argc, char* argv[]) {
 	but at the same time we don't want to start the feed back loop from scratch. 
 */
 	std::vector<Vec2f> lines;
-	if (houghVote < 1 or lines.size() > 2){ // we lost all lines. reset 
+	if (houghVote < 1 or lines.size() < 2){ // we lost all lines. reset 
 		houghVote = 200; 
 	}
 	else{ houghVote += 25;} 
